@@ -1,13 +1,40 @@
 import React from "react";
-import { Text, StyleSheet, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, Modal } from 'react-native'
+import { useState } from "react";
+import { DelModal} from './modal/delModal'
 
-export function PasswordItem({data, removePassword }){
+export function PasswordItem({ data , delPass }){
+    const [modalVisible, setModalVisible] = useState(false)
+    const [visiblePass, setVisiblePass] = useState(true)
+
+    function HideItem(){
+        
+        setVisiblePass(!visiblePass)
+        if(visiblePass == true){  
+            data = data
+        }
+        else{
+            data = "------"
+        }
+        return data
+    }
+
     return(
-        <Pressable onLongPress={removePassword} style={styles.container}>
-           <Text style={styles.text}>{data}</Text>
-        </Pressable>
+        <View>
+            <Pressable onLongPress={()=> setModalVisible(true)} style={styles.container}>
+                <Text style={styles.text}>{data}</Text>
+                <TouchableOpacity style={styles.hideBtn} onPress={HideItem}>
+                    <Text style={styles.hideBtn}>hide</Text>
+                </TouchableOpacity>
+            </Pressable>
+            <Modal visible={modalVisible} animationType="fade" transparent={true}>
+                <DelModal handleClose={()=> setModalVisible(false)} item={data} removePass={delPass}></DelModal>
+            </Modal>
+        </View>
     )
 }
+
+
 
 const styles = StyleSheet.create({
     container:{
@@ -23,5 +50,9 @@ const styles = StyleSheet.create({
 
     text:{
         color: "white", 
+    },
+
+    hideBtn:{
+        color: "white",
     }
 })

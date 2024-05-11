@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, FlatList} from 'react-native'
+import { View, Text, StyleSheet, FlatList, Modal } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useState, useEffect } from 'react'
 import { useIsFocused } from '@react-navigation/native'
 import useStorage from '../../hooks/useStorage'
-import { PasswordItem } from './components/passItem'
-
+import {  PasswordItem } from './components/passItem'
+ 
 export function Passwords(){
     const [listPasswords, setListPasswords] = useState([])
     const focused = useIsFocused()
@@ -34,10 +34,13 @@ export function Passwords(){
                     style={{flex: 1, paddingTop: 14}}
                     data={listPasswords}
                     keyExtractor= {(item)=>String(item)}
-                    renderItem={({item}) => <PasswordItem data={item} removePassword={()=> deletePassword(item)}/>}
+                    renderItem={({item}) => <PasswordItem delPass={deletePassword} data={item}/>}
+
                 />
             </View>
         </SafeAreaView>
+
+        
     )
     //FlatList=> irá renderizar as buscas de listas do usoário
         // data: valor da lista que será renderizada
