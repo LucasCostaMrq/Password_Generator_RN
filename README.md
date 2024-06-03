@@ -18,7 +18,7 @@
 O gerador realiza a criação automática das senhas e o armazena localmente no dispositivo.
 O usoário seleciona qual o tamanho da senha que ele deseja gerar, que varia de 6 a 20 caractéres. <br> <br>
 <img height="550" src="https://github.com/LucasCostaMrq/app_ReactNative/blob/main/gerador_de_senha/UI%20resourses/Screenshot_20240602-164852.png"> <br>
-Após isso, clicando Gerar Senha, o usoário receberá sua senha pronta, podendo salvar ou cancelar. <br> <br>
+Após isso, clicando em `Gerar Senha`, o usoário receberá sua senha pronta, podendo salvar ou cancelar. <br> <br>
 <img height="550" src="https://github.com/LucasCostaMrq/app_ReactNative/blob/main/gerador_de_senha/UI%20resourses/Screenshot_20240602-164911.png">
 <br>
 Salvando, a senha será armazenada na pagina de "Minhas senha", nela temos duas opções: ocultar as senhas ou deleta-las. <br>
