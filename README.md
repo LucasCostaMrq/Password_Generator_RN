@@ -54,3 +54,7 @@ Salvando, a senha será armazenada na pagina de "Minhas senha", nela temos duas 
 
 1. Execute o comando `npx expo start` no diretório do projeto.
 2. Escaneie o QR code com o aplicativo Expo Go no seu dispositivo móvel ou execute no emulador de sua preferência.
+<br>
+<br>
+
+by <a href="https://github.com/LucasCostaMrq">Lucas Costa</a>
