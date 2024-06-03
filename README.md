@@ -22,7 +22,7 @@ O usoário seleciona qual o tamanho da senha que ele deseja gerar, que varia de 
 Após isso, clicando em `Gerar Senha`, o usoário receberá sua senha pronta, podendo salvar ou cancelar. <br> <br>
 <img height="550" src="https://github.com/LucasCostaMrq/app_ReactNative/blob/main/gerador_de_senha/UI%20resourses/Screenshot_20240602-164911.png">
 <br>
-Salvando, a senha será armazenada na pagina de "Minhas senha", nela temos duas opções: ocultar as senhas ou deleta-las. <br>
+Salvando, a senha será armazenada na pagina de "Minhas senhas", nela temos duas opções: ocultar as senhas ou deleta-las. <br>
 <ul>
   <li>Para ocultar, basta clicar em "ocultar", para desfazer, clique em "ver".</li> <br> 
   <img height="550" src="https://github.com/LucasCostaMrq/app_ReactNative/blob/main/gerador_de_senha/UI%20resourses/Screenshot_20240603-123838.png">
