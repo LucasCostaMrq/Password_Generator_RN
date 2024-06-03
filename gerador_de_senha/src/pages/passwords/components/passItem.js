@@ -1,40 +1,23 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable, TouchableOpacity, Modal } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
 import { useState } from "react";
 import { DelModal} from './modal/delModal'
 
 export function PasswordItem({ data , delPass }){
     const [modalVisible, setModalVisible] = useState(false)
-    const [visiblePass, setVisiblePass] = useState(true)
-
-    function HideItem(){
-        
-        setVisiblePass(!visiblePass)
-        if(visiblePass == true){  
-            data = data
-        }
-        else{
-            data = "------"
-        }
-        return data
-    }
 
     return(
         <View>
             <Pressable onLongPress={()=> setModalVisible(true)} style={styles.container}>
                 <Text style={styles.text}>{data}</Text>
-                <TouchableOpacity style={styles.hideBtn} onPress={HideItem}>
-                    <Text style={styles.hideBtn}>hide</Text>
-                </TouchableOpacity>
             </Pressable>
             <Modal visible={modalVisible} animationType="fade" transparent={true}>
-                <DelModal handleClose={()=> setModalVisible(false)} item={data} removePass={delPass}></DelModal>
+                <DelModal delPassConfirm={delPass} handleClose={()=> setModalVisible(false)} data={data} ></DelModal>
             </Modal>
         </View>
     )
 }
-
-
 
 const styles = StyleSheet.create({
     container:{

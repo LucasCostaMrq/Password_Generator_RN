@@ -1,24 +1,20 @@
 import React from "react";
 import{ View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-export function DelModal({ handleClose, removePass, item }){
-    function deleteItemAndClose(){
-        removePass()
-        handleClose()
-    }
+export function DelModal({ handleClose, delPassConfirm, data }){
+    
     return(
-
         <View style={styles.content}>
             <View style={styles.modalWrapper}>
                 <Text style={styles.title}>Deseja deletar a senha?</Text>
                 <View style={styles.contentPassArea}>
-                    <Text style={styles.passContent}>{item}</Text>
+                    <Text style={styles.passContent}>{data}</Text>
                 </View>
                 <View style={styles.areaDeleteButton}>
                     <TouchableOpacity onPress={handleClose} style={styles.buttonPrev}>
                         <Text style={styles.textPrevBtn}>Voltar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={deleteItemAndClose} style={[styles.buttonDelete,styles.buttonPrev ]}>
+                    <TouchableOpacity onPress={delPassConfirm} style={[styles.buttonDelete,styles.buttonPrev ]}>
                     <Text style={styles.textDelBtn}>Deletar</Text>
                     </TouchableOpacity>
                 </View>
@@ -28,6 +24,7 @@ export function DelModal({ handleClose, removePass, item }){
 }
 
 const styles = StyleSheet.create({
+
     content: {
         flex: 1,
         backgroundColor: "rgba(24, 24, 24, 0.4)",

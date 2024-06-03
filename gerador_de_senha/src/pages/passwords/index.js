@@ -7,6 +7,7 @@ import {  PasswordItem } from './components/passItem'
  
 export function Passwords(){
     const [listPasswords, setListPasswords] = useState([])
+    const [visiblePass, setVisiblePass] = useState(true)
     const focused = useIsFocused()
     const { getItem, removeItem } = useStorage()
 
@@ -18,10 +19,7 @@ export function Passwords(){
         loadPasswords()
     }, [focused])
 
-    async function deletePassword(item){
-        const passwords = await removeItem("@pass", item)
-        setListPasswords(passwords)
-    }
+    
     
     return(
         <SafeAreaView style={{flex:1}}>
@@ -34,8 +32,13 @@ export function Passwords(){
                     style={{flex: 1, paddingTop: 14}}
                     data={listPasswords}
                     keyExtractor= {(item)=>String(item)}
-                    renderItem={({item}) => <PasswordItem delPass={deletePassword} data={item}/>}
+                    renderItem={({item}) => <PasswordItem
+                    delPass={async ()=>{
+                        const passwords = await removeItem("@pass", item)
+                        setListPasswords(passwords)
+                    }}
 
+                    data={item}/>}
                 />
             </View>
         </SafeAreaView>
