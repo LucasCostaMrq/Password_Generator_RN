@@ -3,7 +3,7 @@
 
 * [Tecnologias](#Tecnologias)
 * [Funcionamento](#Funcionamento)
-* [Instalação](#Instalacao)
+* [Instalação](#Instalação)
 * [Uso](#Uso)
 
 ## Tecnologias:
