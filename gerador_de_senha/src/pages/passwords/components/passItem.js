@@ -6,11 +6,21 @@ import { DelModal} from './modal/delModal'
 
 export function PasswordItem({ data , delPass }){
     const [modalVisible, setModalVisible] = useState(false)
+    const [dataVisible, setDataVisible] = useState(true)
+
+    const toggleVisibility = () =>{
+        setDataVisible(!dataVisible)
+    }
 
     return(
         <View>
             <Pressable onLongPress={()=> setModalVisible(true)} style={styles.container}>
-                <Text style={styles.text}>{data}</Text>
+                {dataVisible && <Text style={styles.text}>{data}</Text>}
+                <TouchableOpacity onPress={toggleVisibility}>
+                    <Text style={styles.hideBtn}>
+                        {dataVisible ? "ocultar" : "ver"}
+                    </Text>
+                </TouchableOpacity>
             </Pressable>
             <Modal visible={modalVisible} animationType="fade" transparent={true}>
                 <DelModal delPassConfirm={delPass} handleClose={()=> setModalVisible(false)} data={data} ></DelModal>
